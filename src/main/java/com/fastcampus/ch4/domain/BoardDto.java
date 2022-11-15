@@ -9,7 +9,7 @@ public class BoardDto {
     private String content;
     private String writer;
     private int view_cnt;
-    private int comment_cmt;
+    private int comment_cnt;
     private Date reg_date;
 
     public BoardDto() {}
@@ -59,12 +59,12 @@ public class BoardDto {
         this.view_cnt = view_cnt;
     }
 
-    public int getComment_cmt() {
-        return comment_cmt;
+    public int getComment_cnt() {
+        return comment_cnt;
     }
 
-    public void setComment_cmt(int comment_cmt) {
-        this.comment_cmt = comment_cmt;
+    public void setComment_cnt(int comment_cmt) {
+        this.comment_cnt = comment_cmt;
     }
 
     public Date getReg_date() {
@@ -83,7 +83,7 @@ public class BoardDto {
                 ", content='" + content + '\'' +
                 ", writer='" + writer + '\'' +
                 ", view_cnt=" + view_cnt +
-                ", comment_cmt=" + comment_cmt +
+                ", comment_cmt=" + comment_cnt +
                 ", reg_date=" + reg_date +
                 '}';
     }
@@ -100,4 +100,5 @@ public class BoardDto {
     public int hashCode() {
         return Objects.hash(bno, title, content, writer);
     }
+
 }
