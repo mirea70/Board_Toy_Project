@@ -154,6 +154,9 @@
     $("#listBtn").on("click", function(){
       location.href="<c:url value='/board/list${searchCondition.queryString}'/>";
     });
+
+
+
   });
 </script>
 </body>

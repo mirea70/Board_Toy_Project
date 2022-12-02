@@ -66,7 +66,7 @@ public class CommentController {
         }
     }
 
-    // 지정된 게시물의 모든 갯글을 가져오는 메서드
+    // 지정된 게시물의 모든 댓글을 가져오는 메서드
     @RequestMapping("/comments")
     public ResponseEntity<List<CommentDto>> list(Integer bno) {
         List<CommentDto> list = null;
