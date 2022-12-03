@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.fastcampus.ch4.domain.BoardDto;
+import com.fastcampus.ch4.domain.CommentDto;
 import com.fastcampus.ch4.domain.PageHandler;
 import com.fastcampus.ch4.domain.SearchCondition;
 import com.fastcampus.ch4.service.BoardService;
+import com.fastcampus.ch4.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,8 @@ public class BoardController {
 
     @Autowired
     BoardService boardService;
+    @Autowired
+    CommentService commentService;
 
     @PostMapping("/modify")
     public String modify(BoardDto boardDto, Model m ,HttpSession session, RedirectAttributes rattr) {
@@ -106,10 +110,14 @@ public class BoardController {
     @GetMapping("/read")
     public String read(Integer bno, Integer page, Integer pageSize ,Model m) {
 
+//        List<CommentDto> commentList = null;
+
         try {
             BoardDto boardDto = boardService.read(bno);
+            List<CommentDto> commentList = commentService.getList(bno);
 //            m.addAttribute("boardDto", boardDto); // 아래문장과 동일
             m.addAttribute(boardDto);
+            m.addAttribute("commentList", commentList);
             m.addAttribute("page", page);
             m.addAttribute("pageSize", pageSize);
 

@@ -18,7 +18,7 @@ public class CommentController {
 
     // 댓글 등록 메서드
     @PostMapping("/comments")
-    public ResponseEntity<String> write(@RequestBody CommentDto dto, Integer bno, HttpSession session) {
+    public ResponseEntity<String> write(@RequestBody CommentDto dto, Integer bno,HttpSession session) {
         String commenter = "asdf";
         dto.setCommenter(commenter);
         dto.setBno(bno);
